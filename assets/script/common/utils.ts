@@ -209,8 +209,8 @@ export class Utils {
      * @param {number} max 最大值
      * @returns {number}
      */
-    static getRandomNumber(max: number): number {
-        return Math.floor(Math.random() * max)
+    static getRandomNumber(max: number, min: number): number {
+        return Math.floor(Math.random() * max + min)
     }
 
     static getLocalTime(time) {

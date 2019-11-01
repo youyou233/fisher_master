@@ -24,7 +24,8 @@ export default class DynamicDataManager extends cc.Component {
     get data() {
         return this._data
     }
-
+    //当天剩余时间
+    _time
     //暴露程度
     _exposureLevel: number = 0
     set exposureLevel(val: number) {
@@ -33,17 +34,39 @@ export default class DynamicDataManager extends cc.Component {
     get exposureLevel() {
         return this._exposureLevel
     }
-
+    //玩家名称
     _playerName: string = ""
-
+    //僵尸机数量
     _botNum: number = 0
-
+    //电量
     _battery: number = 0
+    //密报仓库
+    _secretMap: object[] = []
+    //警戒度
+    _caution: number = 0
+    //信用点
+    _credit: number = 0
 
-    screteMap:object[]=[]
+    //黑客技能
+    _hackSkill: number = 0
+
+    //交涉点
+    _nogotiate: number = 0
+
+    //电量加成
+    _batteryAdd: number = 0
+
+    //僵尸机回复
+    _botAdd: number = 0
+
+    //警戒程度下降
+    _cautionCount: number = 0
     //----------------  实时更新数据end ----------------
 
-    bindPlayerData() {}
+    //从本地缓存获取data
+    bindPlayerData() {
+
+    }
 
     /**
      * 判断某种货币是否足够

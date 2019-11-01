@@ -1,33 +1,36 @@
-
 /**
- * 
+ *
  * @dec template文件 需要则复制
  */
-const { ccclass, property } = cc._decorator;
+const { ccclass, property } = cc._decorator
 
 @ccclass
 export default class ControlUIManager extends cc.Component {
+    static instance: ControlUIManager = null
 
-  static instance: ControlUIManager = null
+    @property(cc.Node)
+    content: cc.Node = null
+    @property(cc.Button)
+    fishBtn: cc.Button = null
 
-  @property(cc.Node)
-  content: cc.Node = null
+    @property(cc.Button)
+    digBtn: cc.Button = null
 
-  onLoad() {
-    ControlUIManager.instance = this
-    this.bindEvent()
-    this.content.active = false
-    //console.log(People, 'people');
-  }
-  bindEvent() {
+    @property(cc.Button)
+    hideBtn: cc.Button = null
+
     
-  }
-  showUI() {
-    this.content.active = true
-  }
-  hideUI() {
-    this.content.active = false
-  }
-  
+    onLoad() {
+        ControlUIManager.instance = this
+        this.bindEvent()
+        this.content.active = false
+        //console.log(People, 'people');
+    }
+    bindEvent() {}
+    showUI() {
+        this.content.active = true
+    }
+    hideUI() {
+        this.content.active = false
+    }
 }
-

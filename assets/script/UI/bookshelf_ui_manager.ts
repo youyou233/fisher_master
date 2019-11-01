@@ -1,12 +1,12 @@
 /**
- *
- * @dec template文件 需要则复制
+ *  床头柜
+ * @dec 
  */
 const { ccclass, property } = cc._decorator
 
 @ccclass
-export default class SercretInfoUIManager extends cc.Component {
-    static instance: SercretInfoUIManager = null
+export default class BookshelfUIManager extends cc.Component {
+    static instance: BookshelfUIManager = null
 
     @property(cc.Node)
     content: cc.Node = null
@@ -14,10 +14,11 @@ export default class SercretInfoUIManager extends cc.Component {
     @property(cc.Button)
     backBtn: cc.Button = null
 
-    
+    @property(cc.Node)
+    container: cc.Node = null
 
     onLoad() {
-        SercretInfoUIManager.instance = this
+        BookshelfUIManager.instance = this
         this.bindEvent()
         this.content.active = false
         //console.log(People, 'people');
