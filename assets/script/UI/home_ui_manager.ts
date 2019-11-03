@@ -8,43 +8,54 @@ const { ccclass, property } = cc._decorator
 
 @ccclass
 export default class HomeUIManager extends cc.Component {
-    static instance: HomeUIManager = null
+  static instance: HomeUIManager = null
 
-    @property(cc.Node)
-    content: cc.Node = null
-    @property(cc.Button)
-    bedBtn: cc.Button = null
+  @property(cc.Node)
+  content: cc.Node = null
+  @property(cc.Button)
+  bedBtn: cc.Button = null
 
-    @property(cc.Button)
-    shopBtn: cc.Button = null
+  @property(cc.Button)
+  shopBtn: cc.Button = null
 
-    @property(cc.Button)
-    controlBtn: cc.Button = null
+  @property(cc.Button)
+  controlBtn: cc.Button = null
 
-    @property(cc.Button)
-    cupboardBtn: cc.Button = null
+  @property(cc.Button)
+  cupboardBtn: cc.Button = null
 
-    @property(cc.Label)
-    lastTimeLabel: cc.Label = null
+  @property(cc.Label)
+  lastTimeLabel: cc.Label = null
 
-    onLoad() {
-        HomeUIManager.instance = this
-        this.bindEvent()
-        this.content.active = true
-    }
-    bindEvent() {
-        this.bedBtn.node.on("click", this.sleep, this)
-        this.controlBtn.node.on("click", this.showControlUI, this)
-    }
-    sleep() {}
-    showUI() {
-        this.content.active = true
-    }
-    hideUI() {
-        this.content.active = false
-    }
-    showControlUI() {
-      UIManager.instance.showControlUI()
-    }
-    
+  onLoad() {
+    HomeUIManager.instance = this
+    this.bindEvent()
+    this.content.active = true
+  }
+  bindEvent() {
+    this.bedBtn.node.on("click", this.sleep, this)
+    this.shopBtn.node.on('click', this.openShopUI, this)
+    this.controlBtn.node.on("click", this.showControlUI, this)
+    this.cupboardBtn.node.on('click', this.showCupboardUI, this)
+  }
+  sleep() {
+    UIManager.instance.LoadTipsByStr('睡觉')
+  }
+  showUI() {
+    this.content.active = true
+  }
+  hideUI() {
+    this.content.active = false
+  }
+  showControlUI() {
+    UIManager.instance.showControlUI()
+  }
+  showCupboardUI() {
+    UIManager.instance.showCupboardUI()
+    UIManager.instance.LoadTipsByStr('打开仓库页面')
+  }
+  openShopUI() {
+    UIManager.instance.showShopUI()
+    UIManager.instance.LoadTipsByStr('打开商店页面')
+  }
 }

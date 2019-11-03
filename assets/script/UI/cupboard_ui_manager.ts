@@ -17,7 +17,7 @@ export default class CupboardUIManager extends cc.Component {
     @property(cc.Node)
     container: cc.Node = null
 
-    sercretNodeArr: object[] = []
+    secretNodeArr: object[] = []
 
     curTab: number = 0
     onLoad() {

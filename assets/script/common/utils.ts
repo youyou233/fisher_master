@@ -209,7 +209,7 @@ export class Utils {
      * @param {number} max 最大值
      * @returns {number}
      */
-    static getRandomNumber(max: number, min: number): number {
+    static random(min: number, max: number): number {
         return Math.floor(Math.random() * max + min)
     }
 

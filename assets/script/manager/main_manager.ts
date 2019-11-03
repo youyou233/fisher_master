@@ -1,4 +1,4 @@
-import DynamicDataManager from "./dynamic_data_manager"
+import DD from "./dynamic_data_manager";
 /**
  * 主入口
  */
@@ -21,7 +21,8 @@ export default class MainManager extends cc.Component {
     }
     onLoad() {
         this.setDesignResolution()
-        DynamicDataManager.instance.bindPlayerData()
+        DD.instance.bindPlayerData()
+
     }
     setDesignResolution() {
         var canvas = cc.find("Canvas").getComponent(cc.Canvas)
