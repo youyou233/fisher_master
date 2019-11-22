@@ -40,6 +40,8 @@ export default class ControlUIManager extends cc.Component {
 
   @property(cc.Node)
   container: cc.Node = null
+
+  currentTarget: cc.Node = null
   onLoad() {
     ControlUIManager.instance = this
     this.bindEvent()
@@ -78,8 +80,12 @@ export default class ControlUIManager extends cc.Component {
     DD.instance.battery = DD.instance.battery - 1
   }
   dig() {
-    let random = Utils.random(0, 100)
-    UIManager.instance.LoadTipsByStr('挖掘成功:' + random + "")
+    if (!this.currentTarget) {
+      UIManager.instance.LoadTipsByStr('请选择一项数据进行挖掘')
+    } else {
+      let random = Utils.random(0, 100)
+      UIManager.instance.LoadTipsByStr('挖掘成功:' + random + "")
+    }
   }
   hide() {
     if (DD.instance.botNum <= 0) {
