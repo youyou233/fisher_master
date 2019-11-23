@@ -1,4 +1,5 @@
 import UIManager from "../manager/ui_manager"
+import DD from "../manager/dynamic_data_manager"
 
 /**
  *
@@ -39,7 +40,8 @@ export default class HomeUIManager extends cc.Component {
     this.cupboardBtn.node.on('click', this.showCupboardUI, this)
   }
   sleep() {
-    UIManager.instance.LoadTipsByStr('睡觉')
+    UIManager.instance.LoadTipsByStr('睡觉中')
+    DD.instance.data = +DD.instance.data - 1 + ''
   }
   showUI() {
     this.content.active = true

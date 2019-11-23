@@ -1,6 +1,7 @@
 import HomeUIManager from "../UI/home_ui_manager";
 import ControlUIManager from "../UI/control_ui_manager";
 import Secret from "../class/secret";
+import UIManager from "./ui_manager";
 
 const { ccclass, property } = cc._decorator
 
@@ -23,13 +24,28 @@ export default class DD extends cc.Component {
   //当前时间
   _data: string = ""
   set data(val: string) {
-    this._data = val
+    if (+val >= 0) {
+      this._data = val
+    } else {
+      UIManager.instance.LoadTipsByStr('游戏结束')
+      return
+    }
+    if (HomeUIManager.instance) {
+      HomeUIManager.instance.lastTimeLabel.string = '剩余时间：' + this._data + '天'
+    }
   }
   get data() {
     return this._data
   }
   //当天剩余时间
-  _time
+  _time: number = 24 * 60
+  set time(val: number) {
+    this._time = val
+  }
+
+  get time() {
+    return this._time
+  }
   //警戒度
   _caution: number = 0
   set caution(val: number) {
@@ -41,14 +57,6 @@ export default class DD extends cc.Component {
   get caution() {
     return this._caution
   }
-  // //暴露程度
-  // _exposureLevel: number = 0
-  // set exposureLevel(val: number) {
-  //   this._exposureLevel = val
-  // }
-  // get exposureLevel() {
-  //   return this._exposureLevel
-  // }
   //玩家名称
   _playerName: string = ""
   //僵尸机数量
@@ -125,6 +133,7 @@ export default class DD extends cc.Component {
     this.caution = 10
     this.battery = 10
     this.botNum = 5
+    this.data = 30 + ''
   }
 
   /**
