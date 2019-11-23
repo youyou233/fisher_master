@@ -60,4 +60,14 @@ export default class HomeUIManager extends cc.Component {
     UIManager.instance.showShopUI()
     UIManager.instance.LoadTipsByStr('打开商店页面')
   }
+  goWork() {
+    UIManager.instance.LoadTipsByStr('玩家去工作')
+  }
+  openEmailUI() {
+    UIManager.instance.LoadTipsByStr('打开邮件列表')
+    UIManager.instance.showEmailUI()
+  }
+  openBookshelfUI() {
+
+  }
 }

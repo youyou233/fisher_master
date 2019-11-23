@@ -38,7 +38,7 @@ export default class DD extends cc.Component {
     return this._data
   }
   //当天剩余时间
-  _time: number = 24 * 60
+  _time: number = 5
   set time(val: number) {
     this._time = val
   }
@@ -46,6 +46,7 @@ export default class DD extends cc.Component {
   get time() {
     return this._time
   }
+
   //警戒度
   _caution: number = 0
   set caution(val: number) {
@@ -134,6 +135,7 @@ export default class DD extends cc.Component {
     this.battery = 10
     this.botNum = 5
     this.data = 30 + ''
+    this.time = 5
   }
 
   /**

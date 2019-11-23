@@ -93,7 +93,15 @@ export default class UIManager extends cc.Component {
       })
     }
   }
-
+  showEmailUI() {
+    // if (ShopUIManager.instance) {
+    //   ShopUIManager.instance.showUI()
+    // } else {
+    // this.loadUIRes("ui/shop_ui", UIManager.Z_ORDER_5, function () {
+    //   ShopUIManager.instance.showUI()
+    // })
+    // }
+  }
   showShopUI() {
     if (ShopUIManager.instance) {
       ShopUIManager.instance.showUI()
